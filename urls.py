@@ -1,26 +1,21 @@
-"""friutday URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.11/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.conf.urls import url, include
-    2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
-"""
-from django.conf.urls import url,include
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+# python3
+from django.conf.urls import url, include
 from django.contrib import admin
-from memberapp import views
+from userinfo import views
+
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', views.index, name='index'),
-    url(r'^prolist/$', views.prolist_list, name='goodslist'),
-    url(r'^detail/', views.deatil_one),
-    url(r'^user/', include('userinfo.urls')),
-    url(r'^cart/', include('cartinfo.urls')),
+    url('^login/', views.signin, name='login'),
+    url('^register/', views.register_in, name='register'),
+    url('^reigseterin/', views.register_, name='register_in'),
+    url('^loginin/', views.login_, name='login_in'),
+    url('^loginout/', views.login_out, name='login_out'),
+    url('^info/$', views.user_info, name='user_info'),
+    url('^useraddress/$', views.user_address, name='useraddress'),
+    url('^addads/$', views.add_ads, name='addads'),
+    url('^deleteads/$', views.delete_ads, name='deleteads'),
+
+
 ]
